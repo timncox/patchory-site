@@ -1,0 +1,66 @@
+{
+  "site": {
+    "name": "Patchory",
+    "tagline": "The social network for electronic music hardware",
+    "description": "Patchory is an MCP-only social network for electronic music hardware enthusiasts, accessible exclusively through AI chat clients like Claude, ChatGPT, and Gemini. No app, no website, no doomscrolling.",
+    "url": "https://patchory.app"
+  },
+  "pages": [
+    {
+      "slug": "/",
+      "title": "Patchory — the social network for electronic music hardware",
+      "content": "# Find people who play what you play.\n\nPatchory is a social network for electronic music hardware enthusiasts — only accessible through your AI chat client (Claude, ChatGPT, Gemini). No app, no website, no doomscrolling. Just gear, friends, and the AI doing the matching.\n\n---\n\n## Why it works\n\n- **Your collection lives in chat.** Add your synths, drum machines, and Eurorack modules with one prompt. Your AI knows what you own.\n- **Discovery is AI-mediated.** Ask \"who else in Brooklyn has a Digitone II?\" and the AI returns real people you can follow.\n- **No browsing.** No timeline, no algorithm. The product is the prompts you already type.\n\n---\n\n## How it works\n\n1. **Install the Patchory MCP** into your AI client — [Claude](/install/claude), [ChatGPT](/install/chatgpt), or [Gemini](/install/gemini).\n2. **Set up your profile and collection** in chat. One conversation is enough.\n3. **Discover and follow others.** Ask the AI to find people by gear, city, or vibe.\n4. **Get updates in chat** when people you follow add gear or post.\n\n---\n\n## Get access\n\nPatchory is invite-only during Phase 1. Email [tim@patchory.app](mailto:tim@patchory.app) for an invite."
+    },
+    {
+      "slug": "/about",
+      "title": "About Patchory",
+      "content": "# About Patchory\n\nPatchory is a small experiment in social software where the only interface is your AI chat client.\n\nIt exists because the hardware-music community already lives in chat threads, Discord servers, Reddit gear pages, and DMs. The premise: if you're going to talk about gear, you might as well let the AI do the matching, the recommending, and the messaging — and skip the social-network UI entirely.\n\n---\n\n## Phase 1 (2026)\n\nIdentity, gear collection, follow, discovery, feed. Invite-only.\n\n---\n\n## Stack\n\nPatchory runs on top of [Sheaf](https://sheaf.run) (entity data), [MMP](https://mmp.chat) (identity and public keys), and a small server called lens (page rendering).\n\n---\n\n## Who built it\n\nBuilt by Tim Cox in New York. Questions and requests: [tim@patchory.app](mailto:tim@patchory.app)."
+    },
+    {
+      "slug": "/install/claude",
+      "title": "Install Patchory in Claude",
+      "content": "# Install Patchory in Claude\n\nYou'll need the MCP URL Tim sent in your invite email. It's personal — don't share it.\n\n---\n\n## Claude.ai (web)\n\n1. Open [claude.ai](https://claude.ai) and go to your profile.\n2. **Settings → Integrations** tab.\n3. Click **Add MCP server**.\n4. Paste the MCP URL from your invite email.\n5. Click **Save**.\n6. Test: type `what's my Patchory profile?`\n\n---\n\n## Claude Code (CLI)\n\n```\nclaude mcp add patchory <the-mcp-url-from-your-invite>\n```\n\nThen ask: `what's my Patchory profile?`\n\n---\n\n## Troubleshooting\n\n**\"MCP server not responding\"**\nYour URL token may have been re-minted. We did this once on 2026-05-13. Email [tim@patchory.app](mailto:tim@patchory.app) for a fresh URL.\n\n**\"Tool not found\"**\nTry restarting Claude after adding the MCP server. Tools are picked up on session start.\n\nAnything else: [tim@patchory.app](mailto:tim@patchory.app)."
+    },
+    {
+      "slug": "/install/chatgpt",
+      "title": "Install Patchory in ChatGPT",
+      "content": "# Install Patchory in ChatGPT\n\nYou'll need the MCP URL from your invite email, plus a ChatGPT account with **Custom Connectors** enabled. This is currently a Plus, Pro, or Team feature.\n\n---\n\n## Steps\n\n1. Open ChatGPT and go to your profile.\n2. **Settings → Connectors** tab. If you don't see it, your plan doesn't support Custom Connectors yet — try [Claude](/install/claude) instead, or upgrade your ChatGPT plan.\n3. Click **Add**.\n4. Paste the MCP URL from your invite email. Make sure it's the full path.\n5. Click **Save**.\n6. **Start a new chat** — connectors are picked up at conversation start.\n7. Test: type `what's my Patchory profile?`\n\n---\n\n## Troubleshooting\n\n**\"Connector failed to register\"**\nCheck the URL is the full path from your invite email. The token must be present.\n\n**\"I see the connector but no Patchory tools appear\"**\nStart a new chat. Connectors aren't picked up mid-conversation.\n\nAnything else: [tim@patchory.app](mailto:tim@patchory.app)."
+    },
+    {
+      "slug": "/install/gemini",
+      "title": "Install Patchory in Gemini",
+      "content": "# Install Patchory in Gemini\n\n**Status (last checked 2026-05-13):** Gemini's MCP support is still evolving.\n\nAs of this date, there is no stable in-app MCP installation flow for end users. We'll publish step-by-step instructions here once Gemini ships native MCP support.\n\n---\n\n## In the meantime\n\nIf you want to try Patchory now, use [Claude](/install/claude) or [ChatGPT](/install/chatgpt) instead.\n\nEmail [tim@patchory.app](mailto:tim@patchory.app) if you want to be notified when Gemini support lands."
+    },
+    {
+      "slug": "/docs",
+      "title": "Patchory tool reference",
+      "content": "# Patchory tool reference\n\nPatchory exposes **16 MCP tools** in Phase 1, grouped by category. Each tool is invoked by your AI client when you ask the right kind of question — you don't call them by name. The example prompts below are what you type; the AI picks the right tool.\n\n---\n\n## Identity\n\n| Tool | What it does | Example prompt |\n|------|-------------|----------------|\n| `whoami` | Returns your profile card | *\"Show me my Patchory profile\"* |\n| `update_profile` | Edits your display name, bio, or city | *\"Update my Patchory bio to: Berlin-based modular nerd\"* |\n| `find_user` | Looks up a specific handle | *\"Find the Patchory user @mooghead\"* |\n\n---\n\n## Gear\n\n| Tool | What it does | Example prompt |\n|------|-------------|----------------|\n| `gear_search` | Searches the catalog of ~50 popular synths, drum machines, samplers, Eurorack modules | *\"Search Patchory for Digitone II\"* |\n| `add_gear` | Adds an item to your collection | *\"Add a Moog Matriarch to my Patchory collection\"* |\n| `remove_gear` | Removes one of your items | *\"Remove the TR-8S from my Patchory collection\"* |\n| `my_collection` | Lists everything you own | *\"What's in my Patchory collection?\"* |\n\n---\n\n## Social\n\n| Tool | What it does | Example prompt |\n|------|-------------|----------------|\n| `follow` | Follow a user | *\"Follow @drumkitten on Patchory\"* |\n| `unfollow` | Unfollow a user | *\"Unfollow @drumkitten on Patchory\"* |\n| `my_follows` | Who you follow | *\"Who am I following on Patchory?\"* |\n| `my_followers` | Who follows you | *\"Who follows me on Patchory?\"* |\n\n---\n\n## Feed\n\n| Tool | What it does | Example prompt |\n|------|-------------|----------------|\n| `feed` | Recent activity from people you follow | *\"Show me my Patchory feed\"* |\n| `post` | Write a short post | *\"Post to Patchory: just patched the weirdest drone, send help\"* |\n\n---\n\n## Views\n\n| Tool | What it does | Example prompt |\n|------|-------------|----------------|\n| `view_profile` | Returns a rich profile card; can mint a full webpage | *\"Show me a full profile page for @mooghead\"* |\n| `view_collection` | Gear grid; can mint a full webpage with photos | *\"Show me @mooghead's collection as a page\"* |\n\n---\n\n## Discovery\n\n| Tool | What it does | Example prompt |\n|------|-------------|----------------|\n| `discover_users` | Find people by gear, city, or similarity to you | *\"Who else in Brooklyn has a Digitone II?\"* |\n\n---\n\n## Data model\n\nProfiles, gear collections, posts, and follows live in a shared **Sheaf** workspace. Identity comes from **MMP**. Photos are hosted on **Vercel Blob**. Full-page views are rendered by **lens** from signed URLs."
+    },
+    {
+      "slug": "/legal/terms",
+      "title": "Patchory terms",
+      "content": "# Patchory terms\n\n*Last updated 2026-05-13.*\n\nThese terms apply to your use of Patchory during Phase 1 (invite-only testing).\n\n---\n\n**1. Invite-only.** Patchory is currently in invite-only testing. Don't share your invite URL — it contains a token that grants access on your behalf.\n\n**2. Identity via MMP.** Patchory uses your MMP handle for identity. [MMP's terms](https://mmp.chat) also apply.\n\n**3. Public-by-default.** Everything you post, every piece of gear you add, your profile, and your follow graph are public to other Patchory users by default. There are no private posts or DMs in Phase 1.\n\n**4. No moderation guarantee.** During Phase 1 we don't actively moderate content. Report violations to [tim@patchory.app](mailto:tim@patchory.app).\n\n**5. No warranty.** Patchory is offered as-is. We may take it offline, change behavior, or reset data at any time during Phase 1.\n\n**6. Data ownership.** You own the content you post. By posting you grant Patchory a non-exclusive license to display it to other users.\n\n**7. No commercial use.** Phase 1 is for personal hobbyist use. Buying, selling, or commercial listings are out of scope (Phase 2+).\n\n---\n\nQuestions: [tim@patchory.app](mailto:tim@patchory.app)."
+    },
+    {
+      "slug": "/legal/privacy",
+      "title": "Patchory privacy",
+      "content": "# Patchory privacy\n\n*Last updated 2026-05-13.*\n\n---\n\n## What we store\n\n- **Profile data** — handle, display name, bio, city, joined date, avatar URL — in a shared Sheaf workspace.\n- **Gear collection** — catalog items, condition, photos — in Sheaf.\n- **Follow graph** — in Sheaf.\n- **Posts** — in Sheaf.\n- **Photos** — on Vercel Blob with public URLs.\n\n---\n\n## What we don't store\n\n- No analytics, no cookies, no third-party trackers on patchory.app.\n- No private DMs in Phase 1.\n- No browsing history.\n\n---\n\n## Who can see what\n\nEverything stored is public to other Patchory users by default. Photos are served from a public CDN.\n\n---\n\n## Deletion\n\nEmail [tim@patchory.app](mailto:tim@patchory.app) to delete your account.\n\n---\n\n## Third parties\n\n- [Sheaf](https://sheaf.run) — hosts entity data.\n- [MMP](https://mmp.chat) — holds your handle and public key.\n- Vercel Blob — hosts photos.\n\n---\n\nQuestions: [tim@patchory.app](mailto:tim@patchory.app)."
+    }
+  ],
+  "theme": {
+    "accent": "#e05a1e",
+    "mode": "dark",
+    "font": "mono"
+  },
+  "schema": {
+    "type": "Organization",
+    "extra": {
+      "sameAs": [
+        "https://sheaf.run",
+        "https://mmp.chat"
+      ],
+      "email": "tim@patchory.app",
+      "foundingLocation": "New York"
+    }
+  }
+}
